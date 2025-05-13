@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Делайка — Простой таск-менеджер</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="assets/logo.svg" />
+  </head>
+  <body class="bg-white text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-8 px-6">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between">
+        <h1 class="text-3xl font-bold flex items-center gap-2">
+          <img src="assets/logo.svg" alt="Делайка" class="h-8" />
+          Де&#x301;лайка
+        </h1>
+        <a href="demo.html" class="mt-4 md:mt-0 bg-white text-indigo-600 px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition">Попробовать демо</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-16 px-6 text-center">
+      <h2 class="text-4xl font-bold mb-4">Минималистичный таск-менеджер</h2>
+      <p class="text-lg text-gray-600 max-w-xl mx-auto">
+        Делайка — это простой и удобный таск-менеджер для малого бизнеса, команд и фрилансеров. Никаких сложных настроек — только то, что нужно.
+      </p>
+      <div class="mt-6">
+        <a href="demo.html" class="bg-indigo-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-indigo-700 transition">
+          Перейти в демо
+        </a>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="bg-gray-50 py-16 px-6">
+      <div class="max-w-5xl mx-auto text-center">
+        <h3 class="text-2xl font-semibold mb-8">Интерфейс Делайки</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <img src="assets/screenshots/auth.png" alt="Авторизация" class="rounded shadow" />
+          <img src="assets/screenshots/dashboard.png" alt="Dashboard" class="rounded shadow" />
+          <img src="assets/screenshots/tasks.png" alt="Список задач" class="rounded shadow" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-2xl font-bold text-center mb-10">Возможности</h3>
+        <div class="grid md:grid-cols-2 gap-6 text-lg text-gray-700">
+          <ul class="list-disc pl-5 space-y-2">
+            <li>Создание проектов и задач</li>
+            <li>Изменение статусов</li>
+            <li>Комментарии к задачам</li>
+            <li>Архив завершённых</li>
+          </ul>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>Уведомления в системе</li>
+            <li>Статистика по задачам</li>
+            <li>Лёгкость установки</li>
+            <li>Интуитивный интерфейс</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-indigo-600 text-white py-16 px-6 text-center">
+      <h3 class="text-3xl font-bold mb-4">Готовы попробовать?</h3>
+      <p class="text-lg mb-6">Демо-доступ без регистрации</p>
+      <a href="demo.html" class="bg-white text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+        Перейти в демо
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-sm text-gray-500 py-6">
+      © 2025 Делайка. Сделано Александром.
+    </footer>
+  </body>
+</html>
