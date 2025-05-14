@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="../assets/logo.svg" />
 
-    <title>Список пользователей</title>
+    <title>Мои задачи</title>
 
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -211,8 +211,9 @@
                         <div class="relative flex items-center">
                             <a href="#"
                                 class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-full text-sm p-2.5">
-                                <img class="h-5 w-5 object-cover rounded-full" src="../assets/avatar.jpg"
-                                    alt="user photo">
+                                <img
+                                    class="h-5 w-5 object-cover rounded-full"
+                                    src="../assets/avatar.jpg" alt="user photo">
 
                             </a>
                         </div>
@@ -288,7 +289,6 @@
             <div class="mt-14">
                 <div class="rounded">
                     <nav class="flex justify-between items-center" aria-label="Breadcrumb">
-                        <!-- Хлебные крошки скрыты на мобильных устройствах -->
                         <ol class="hidden sm:flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                             <li class="inline-flex items-center">
                                 <a href="../demo/tasks.html"
@@ -308,233 +308,183 @@
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="2" d="m1 9 4-4-4-4" />
                                     </svg>
-                                    <span
-                                        class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Пользователи</span>
+                                    <a href="/projects"
+                                        class="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">Проекты</a>
                                 </div>
                             </li>
                         </ol>
 
                         <!-- Фильтр и кнопка добавления справа -->
                         <div class="flex items-center space-x-4">
-                            <form method="get">
-                                <div class="flex space-x-4">
-                                    <select id="sort" name="sort"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        onchange="this.form.submit()">
-                                        <option value="status" th:selected="status">По статусу
-                                        </option>
-                                        <option value="alphabet" th:selected="alphabet">По алфавиту
-                                        </option>
-                                        <option value="group" th:selected="group">По группе
-                                        </option>
-                                    </select>
-                                </div>
-                            </form>
-
-                            <a th:href="../demo/registration"
+                            <a href="#"
                                 class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                Новый пользователь
+                                Создать новый проект
                             </a>
                         </div>
                     </nav>
 
-
-
-                    <section class="relative overflow-x-auto sm:rounded-lg mt-3">
-                        <div
-                            class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4">
-                            <div>
-                                <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction"
-                                    class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                                    type="button">
-                                    <span class="sr-only">Action button</span>
-                                    Действие
-                                    <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 4 4 4-4" />
-                                    </svg>
-                                </button>
-                                <!-- Dropdown menu -->
-                                <div id="dropdownAction"
-                                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                                        aria-labelledby="dropdownActionButton">
-                                        <li>
-                                            <a id="deactivateButton" href="#" style="display:none"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Деактивировать
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a id="activateButton" href="#" style="display:none"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Активировать
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a id="bulkDeactivateLink" href="#" style="display:none"
-                                                onclick="bulkDeactivateUsers()"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Деактивировать выбранных
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a id="bulkActivateLink" href="#" style="display:none"
-                                                onclick="bulkActivateUsers()"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                                Активировать выбранных
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="py-1">
-                                        <a id="deleteButton" href="#" style="display:none"
-                                            onclick="return confirm('Вы уверены, что хотите удалить этого пользователя?')"
-                                            class="block px-4 py-2 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-red-400 dark:hover:text-white">
-                                            Удалить
+                    <section class="container py-6">
+                        <div class="mx-auto grid lg:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1 sm:justify-center">
+                            <div class="relative p-5 bg-white border border-gray-200 task rounded-xl shadow-theme-sm dark:border-gray-800 dark:bg-white/5"
+                                draggable="true" style="opacity: 0.8;" data-handler-id="T22">
+                                <div class="space-y-4">
+                                    <div>
+                                        <a href="#"
+                                            class="hover:underline hover:text-blue-700">
+                                            <h5 class="mb-5 mr-10 text-lg font-bold text-gray-800 dark:text-white/90">
+                                                Тестовый проект
+                                            </h5>
                                         </a>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia porro voluptatem aspernatur quae excepturi neque voluptas quis officia, repellendus distinctio fugiat mollitia est suscipit aliquid exercitationem molestiae vero sed voluptatum.
+                                        </p>
+                                        
+
                                     </div>
                                 </div>
-
                             </div>
-                            <label for="table-search" class="sr-only">Search</label>
-                            <div class="relative">
-                                <div
-                                    class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                                    </svg>
+
+                            <div class="relative p-5 bg-white border border-gray-200 task rounded-xl shadow-theme-sm dark:border-gray-800 dark:bg-white/5"
+                                draggable="true" style="opacity: 0.8;" data-handler-id="T22">
+                                <div class="space-y-4">
+                                    <div>
+                                        <a href="#"
+                                            class="hover:underline hover:text-blue-700">
+                                            <h5 class="mb-5 mr-10 text-lg font-bold text-gray-800 dark:text-white/90">
+                                                Тестовый проект #2
+                                            </h5>
+                                        </a>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia porro voluptatem aspernatur quae excepturi neque voluptas quis officia, repellendus distinctio fugiat mollitia est suscipit aliquid exercitationem molestiae vero sed voluptatum.
+                                        </p>
+                                        
+
+                                    </div>
                                 </div>
-                                <input type="text" id="table-search-users"
-                                    class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Поиск пользователя" onkeyup="filterUsers()">
+                            </div>
+
+                            <div class="relative p-5 bg-white border border-gray-200 task rounded-xl shadow-theme-sm dark:border-gray-800 dark:bg-white/5"
+                                draggable="true" style="opacity: 0.8;" data-handler-id="T22">
+                                <div class="space-y-4">
+                                    <div>
+                                        <a href="#"
+                                            class="hover:underline hover:text-blue-700">
+                                            <h5 class="mb-5 mr-10 text-lg font-bold text-gray-800 dark:text-white/90">
+                                                Тестовый проект #3
+                                            </h5>
+                                        </a>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia porro voluptatem aspernatur quae excepturi neque voluptas quis officia, repellendus distinctio fugiat mollitia est suscipit aliquid exercitationem molestiae vero sed voluptatum.
+                                        </p>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="relative p-5 bg-white border border-gray-200 task rounded-xl shadow-theme-sm dark:border-gray-800 dark:bg-white/5"
+                                draggable="true" style="opacity: 0.8;" data-handler-id="T22">
+                                <div class="space-y-4">
+                                    <div>
+                                        <a href="#"
+                                            class="hover:underline hover:text-blue-700">
+                                            <h5 class="mb-5 mr-10 text-lg font-bold text-gray-800 dark:text-white/90">
+                                                Тестовый проект #4
+                                            </h5>
+                                        </a>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia porro voluptatem aspernatur quae excepturi neque voluptas quis officia, repellendus distinctio fugiat mollitia est suscipit aliquid exercitationem molestiae vero sed voluptatum.
+                                        </p>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="relative p-5 bg-white border border-gray-200 task rounded-xl shadow-theme-sm dark:border-gray-800 dark:bg-white/5"
+                                draggable="true" style="opacity: 0.8;" data-handler-id="T22">
+                                <div class="space-y-4">
+                                    <div>
+                                        <a href="#"
+                                            class="hover:underline hover:text-blue-700">
+                                            <h5 class="mb-5 mr-10 text-lg font-bold text-gray-800 dark:text-white/90">
+                                                Тестовый проект #5
+                                            </h5>
+                                        </a>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia porro voluptatem aspernatur quae excepturi neque voluptas quis officia, repellendus distinctio fugiat mollitia est suscipit aliquid exercitationem molestiae vero sed voluptatum.
+                                        </p>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="relative p-5 bg-white border border-gray-200 task rounded-xl shadow-theme-sm dark:border-gray-800 dark:bg-white/5"
+                                draggable="true" style="opacity: 0.8;" data-handler-id="T22">
+                                <div class="space-y-4">
+                                    <div>
+                                        <a href="#"
+                                            class="hover:underline hover:text-blue-700">
+                                            <h5 class="mb-5 mr-10 text-lg font-bold text-gray-800 dark:text-white/90">
+                                                Тестовый проект #6
+                                            </h5>
+                                        </a>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia porro voluptatem aspernatur quae excepturi neque voluptas quis officia, repellendus distinctio fugiat mollitia est suscipit aliquid exercitationem molestiae vero sed voluptatum.
+                                        </p>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="relative p-5 bg-white border border-gray-200 task rounded-xl shadow-theme-sm dark:border-gray-800 dark:bg-white/5"
+                                draggable="true" style="opacity: 0.8;" data-handler-id="T22">
+                                <div class="space-y-4">
+                                    <div>
+                                        <a href="#"
+                                            class="hover:underline hover:text-blue-700">
+                                            <h5 class="mb-5 mr-10 text-lg font-bold text-gray-800 dark:text-white/90">
+                                                Тестовый проект #7
+                                            </h5>
+                                        </a>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia porro voluptatem aspernatur quae excepturi neque voluptas quis officia, repellendus distinctio fugiat mollitia est suscipit aliquid exercitationem molestiae vero sed voluptatum.
+                                        </p>
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="relative p-5 bg-white border border-gray-200 task rounded-xl shadow-theme-sm dark:border-gray-800 dark:bg-white/5"
+                                draggable="true" style="opacity: 0.8;" data-handler-id="T22">
+                                <div class="space-y-4">
+                                    <div>
+                                        <a href="#"
+                                            class="hover:underline hover:text-blue-700">
+                                            <h5 class="mb-5 mr-10 text-lg font-bold text-gray-800 dark:text-white/90">
+                                                Тестовый проект #8
+                                            </h5>
+                                        </a>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia porro voluptatem aspernatur quae excepturi neque voluptas quis officia, repellendus distinctio fugiat mollitia est suscipit aliquid exercitationem molestiae vero sed voluptatum.
+                                        </p>
+                                        
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                            <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                <tr>
-                                    <th scope="col" class="p-4">
-                                        <div class="flex items-center">
-                                            <input id="checkbox-all-search" type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                                        </div>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Имя
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Должность
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Группа
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Роль
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Статус
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody id="userTableBody">
-                                <tr
-                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <td class="w-4 p-4">
-                                        <div class="flex items-center">
-                                            <input type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500">
-                                            <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                                        </div>
-                                    </td>
-                                    <th scope="row"
-                                        class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                                        <img src="../assets/avatar.jpg"
-                                            class="w-12 h-12 object-cover rounded-full flex-none" alt="user avatar">
-                                        <div class="ps-3">
-                                            <a href="#">
-                                                <div class="text-base font-semibold">
-                                                    Александр Быков
-                                                </div>
-                                            </a>
-                                            <div class="font-normal text-gray-500">
-                                                san4jkee@gmail.com
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Java Developer
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        KB
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        ADMIN
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div>
-                                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                                                <span>В сети</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr
-                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <td class="w-4 p-4">
-                                        <div class="flex items-center">
-                                            <input type="checkbox"
-                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500">
-                                            <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                                        </div>
-                                    </td>
-                                    <th scope="row"
-                                        class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="w-12 h-12 text-gray-500 align-middle flex-none dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                                            aria-hidden="true" viewBox="0 0 448 512" fill="currentColor">
-                                            <path
-                                                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
-                                        </svg>
-                                        <div class="ps-3">
-                                            <a href="#">
-                                                <div class="text-base font-semibold">
-                                                    Лев Николаевич Толстой
-                                                </div>
-                                            </a>
-                                            <div class="font-normal text-gray-500">
-                                                tolstoy@delayka.ru
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        User
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        KB
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        USER
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div>
-                                            <span>Не в сети</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </section>
+
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 <script src="../assets/js/jquery-3.2.1.slim.min.js"></script>
 <script src="../assets/js/app.js"></script>
 <script src="../assets/js/flowbite.min.js"></script>
