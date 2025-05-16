@@ -1,121 +1,238 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Делайка — Простой таск-менеджер</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="assets/logo.svg" />
-  </head>
-  <body class="bg-white text-gray-800 font-sans">
-    <!-- Header -->
-    <header class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-8 px-6">
-      <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between">
-        <h1 class="text-3xl font-bold flex items-center gap-2">
-          <img src="assets/logo.svg" alt="Делайка" class="h-8" />
-          Де&#x301;лайка
-        </h1>
-        <a href="demo/tasks.html" class="mt-4 md:mt-0 bg-white text-indigo-600 px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition">Попробовать демо</a>
-      </div>
-    </header>
 
-    <!-- Hero -->
-    <section class="py-16 px-6 text-center">
-      <h2 class="text-4xl font-bold mb-4">Минималистичный таск-менеджер</h2>
-      <p class="text-lg text-gray-600 max-w-xl mx-auto">
-        Делайка — это простой и удобный таск-менеджер для малого бизнеса, команд и фрилансеров. Никаких сложных настроек — только то, что нужно.
-      </p>
-      <div class="mt-6">
-        <a href="demo/tasks.html" class="bg-indigo-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-indigo-700 transition">
-          Перейти в демо
-        </a>
-      </div>
-    </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Делайка — простой таск-менеджер для бизнеса и команд</title>
 
-    <!-- Screenshots -->
-    <section class="bg-gray-50 py-16 px-6">
-      <div class="max-w-5xl mx-auto text-center">
-        <h3 class="text-2xl font-semibold mb-8">Интерфейс Делайки</h3>
-        <div class="grid md:grid-cols-3 gap-6">
-          <img src="assets/screenshots/auth.png" alt="Авторизация" class="rounded shadow" />
-          <img src="assets/screenshots/dashboard.png" alt="Dashboard" class="rounded shadow" />
-          <img src="assets/screenshots/tasks.png" alt="Список задач" class="rounded shadow" />
-        </div>
-      </div>
-    </section>
+  <!-- SEO Meta -->
+  <meta name="description" content="Делайка — коробочный таск-менеджер на русском языке для бизнеса и команд. Устанавливается на ваш сервер. Пожизненная лицензия. Без абонентской платы.">
+  <meta name="keywords" content="таск-менеджер, управление задачами, планирование, система задач, менеджер проектов, таск менеджер на русском, делайка, коробочное ПО, установка на сервер, без подписки, пожизненная лицензия, для бизнеса, для команды">
+  <meta name="author" content="Александр" />
 
-    <!-- Features -->
-    <section class="py-16 px-6">
-      <div class="max-w-4xl mx-auto">
-        <h3 class="text-2xl font-bold text-center mb-10">Возможности</h3>
-        <div class="grid md:grid-cols-2 gap-6 text-lg text-gray-700">
-          <ul class="list-disc pl-5 space-y-2">
-            <li>Создание проектов и задач</li>
-            <li>Изменение статусов</li>
-            <li>Комментарии к задачам</li>
-            <li>Архив завершённых</li>
-            <li>Интеграция с Active Directory</li>
-            <li>Уведомления в Telegram (опционально)</li>
-          </ul>
-          <ul class="list-disc pl-5 space-y-2">
-            <li>Уведомления в системе</li>
-            <li>Статистика по задачам</li>
-            <li>Лёгкость установки</li>
-            <li>Интуитивный интерфейс</li>
-            <li>Импорт/экспорт задач</li>
-            <li>Личный чат (в разработке)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <!-- Open Graph для социальных сетей -->
+  <meta property="og:title" content="Делайка — таск-менеджер для бизнеса" />
+  <meta property="og:description" content="Коробочная версия системы управления задачами. Установка на сервер. Без ограничений по пользователям." />
+  <meta property="og:image" content="https://san4jkee.github.io/delaika-landing/assets/logo-og.png" />
+  <meta property="og:url" content="https://san4jkee.github.io/delaika-landing/" />
+  <meta property="og:type" content="website" />
 
-    <!-- Comparison -->
-    <section class="bg-gray-100 py-16 px-6">
-      <div class="max-w-5xl mx-auto">
-        <h3 class="text-2xl font-bold text-center mb-8">Сравнение с другими решениями</h3>
-        <div class="overflow-x-auto">
-          <table class="min-w-full bg-white border border-gray-300 text-sm text-left">
-            <thead>
-              <tr class="bg-gray-200">
-                <th class="px-4 py-2">Функции</th>
-                <th class="px-4 py-2">Делайка</th>
-                <th class="px-4 py-2">Мегаплан</th>
-                <th class="px-4 py-2">Bitrix24</th>
-                <th class="px-4 py-2">Yandex Tracker</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="px-4 py-2">Интеграция с AD</td><td class="px-4 py-2">✔</td><td class="px-4 py-2">✘</td><td class="px-4 py-2">✔</td><td class="px-4 py-2">✘</td></tr>
-              <tr class="bg-gray-50"><td class="px-4 py-2">Интерфейс без лишнего</td><td class="px-4 py-2">✔</td><td class="px-4 py-2">✘</td><td class="px-4 py-2">✘</td><td class="px-4 py-2">✔</td></tr>
-              <tr class="bg-gray-50"><td class="px-4 py-2">Личный сервер</td><td class="px-4 py-2">✔</td><td class="px-4 py-2">✔</td><td class="px-4 py-2">✘</td><td class="px-4 py-2">✘</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo.svg" />
+</head>
 
-    <!-- Clients -->
-    <section class="py-16 px-6">
-      <div class="max-w-4xl mx-auto text-center">
-        <h3 class="text-2xl font-bold mb-6">Нам уже доверяют</h3>
-        <ul class="text-gray-700 text-lg space-y-3">
-          <li>— ООО "Тулпар Интерьеры Инжиниринг Дизайн"</li>
-        </ul>
-      </div>
-    </section>
+<body class="bg-white text-gray-800 font-sans">
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-8 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between">
+      <h1 class="text-3xl font-bold flex items-center gap-2">
+        <img src="assets/logo.svg" alt="Делайка" class="h-8" />
+        Де&#x301;лайка
+      </h1>
+      <a href="demo/tasks.html"
+        class="mt-4 md:mt-0 bg-white text-indigo-600 px-5 py-2 rounded-full font-semibold hover:bg-gray-100 transition">Попробовать
+        демо</a>
+    </div>
+  </header>
 
-    <!-- CTA -->
-    <section class="bg-indigo-600 text-white py-16 px-6 text-center">
-      <h3 class="text-3xl font-bold mb-4">Готовы попробовать?</h3>
-      <p class="text-lg mb-6">Демо-доступ без регистрации</p>
-      <a href="demo/tasks.html" class="bg-white text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+  <!-- Hero -->
+  <section class="py-16 px-6 text-center">
+    <h2 class="text-4xl font-bold mb-4">Минималистичный таск-менеджер</h2>
+    <p class="text-lg text-gray-600 max-w-xl mx-auto">
+      Делайка — это простой и удобный таск-менеджер для малого бизнеса, команд и фрилансеров. Никаких сложных настроек —
+      только то, что нужно.
+    </p>
+    <div class="mt-6">
+      <a href="demo/tasks.html"
+        class="bg-indigo-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-indigo-700 transition">
         Перейти в демо
       </a>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="text-center text-sm text-gray-500 py-6">
-      © 2025 Делайка. Сделано Александром.
-    </footer>
-  </body>
+  <!-- Screenshots -->
+  <section class="bg-gray-50 py-16 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h3 class="text-2xl font-semibold mb-8">Интерфейс Делайки</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <img src="assets/screenshots/auth.png" alt="Авторизация" class="rounded shadow" />
+        <img src="assets/screenshots/dashboard.png" alt="Dashboard" class="rounded shadow" />
+        <img src="assets/screenshots/tasks.png" alt="Список задач" class="rounded shadow" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-2xl font-bold text-center mb-10">Возможности</h3>
+      <div class="grid md:grid-cols-2 gap-6 text-lg text-gray-700">
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Создание проектов и задач</li>
+          <li>Изменение статусов</li>
+          <li>Комментарии к задачам</li>
+          <li>Архив завершённых</li>
+          <li>Интеграция с Active Directory</li>
+          <li>Уведомления в Telegram (опционально)</li>
+        </ul>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Уведомления в системе</li>
+          <li>Статистика по задачам</li>
+          <li>Лёгкость установки</li>
+          <li>Интуитивный интерфейс</li>
+          <li>Импорт/экспорт задач</li>
+          <li>Личный чат (в разработке)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="bg-gray-100 py-16 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-2xl font-bold text-center mb-8">Сравнение с другими решениями</h3>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white border border-gray-300 text-sm text-left">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="px-4 py-2">Функции</th>
+              <th class="px-4 py-2">Делайка</th>
+              <th class="px-4 py-2">Мегаплан</th>
+              <th class="px-4 py-2">Bitrix24</th>
+              <th class="px-4 py-2">Yandex Tracker</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="px-4 py-2">Интеграция с AD</td>
+              <td class="px-4 py-2">✔</td>
+              <td class="px-4 py-2">✘</td>
+              <td class="px-4 py-2">✔</td>
+              <td class="px-4 py-2">✘</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="px-4 py-2">Интерфейс без лишнего</td>
+              <td class="px-4 py-2">✔</td>
+              <td class="px-4 py-2">✘</td>
+              <td class="px-4 py-2">✘</td>
+              <td class="px-4 py-2">✔</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="px-4 py-2">Личный сервер</td>
+              <td class="px-4 py-2">✔</td>
+              <td class="px-4 py-2">✔</td>
+              <td class="px-4 py-2">✘</td>
+              <td class="px-4 py-2">✘</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+<section class="py-20 px-6 bg-white text-gray-800">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6">Приобретите Делайку навсегда</h2>
+    <p class="text-lg text-gray-600 mb-12">Единоразовая покупка. Установка на вашем сервере. Без ограничений по пользователям.</p>
+
+    <div class="bg-gray-100 rounded-xl p-10 shadow-lg">
+      <h3 class="text-4xl font-extrabold text-indigo-700 mb-4">39 900 ₽</h3>
+      <p class="text-gray-700 mb-6">Включено:</p>
+      <ul class="text-left list-disc list-inside text-gray-700 mb-6 space-y-2">
+        <li>Коробочная версия с пожизненной лицензией</li>
+        <li>Неограниченное количество пользователей</li>
+        <li>Полная инструкция по установке</li>
+        <li>Возможность кастомизации под вас</li>
+      </ul>
+      <a href="#contact" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-lg font-semibold px-8 py-3 rounded-lg transition">Оставить заявку</a>
+    </div>
+
+    <p class="text-sm text-gray-500 mt-6">Поддержка и обновления — опционально, 6 000 ₽ в год.</p>
+  </div>
+</section>
+
+
+  <!-- Clients -->
+  <section class="py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-2xl font-bold mb-6">Нам уже доверяют</h3>
+      <ul class="text-gray-700 text-lg space-y-3">
+        <li>— ООО "Тулпар Интерьеры Инжиниринг Дизайн"</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-indigo-600 text-white py-16 px-6 text-center">
+    <h3 class="text-3xl font-bold mb-4">Готовы попробовать?</h3>
+    <p class="text-lg mb-6">Демо-доступ без регистрации</p>
+    <a href="demo/tasks.html"
+      class="bg-white text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">
+      Перейти в демо
+    </a>
+  </section>
+
+  <!-- SEO Block -->
+  <section class="px-6 py-16 bg-gray-100 text-gray-800 text-sm leading-relaxed border-t border-gray-200">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-xl font-semibold mb-4">Делайка — таск-менеджер без подписки для команд и бизнеса</h3>
+      <p class="mb-4">
+        Делайка — это простой и удобный таск-менеджер для управления задачами внутри команд, отделов и компаний. В
+        отличие от облачных решений, Делайка работает на вашем сервере — без зависимости от внешних сервисов и без риска
+        утечки данных.
+      </p>
+      <p class="mb-4">
+        Наш таск-менеджер не требует ежемесячной подписки — вы получаете полную коробочную версию с единоразовой
+        оплатой. Это выгодная альтернатива таким системам, как WEEEK, Planfix, Bitrix24, которые часто ограничены по
+        количеству пользователей или требуют регулярных платежей.
+      </p>
+      <p class="mb-4">
+        Делайка подходит для малого бизнеса, ИТ-команд, студий, подрядчиков и любых организаций, которым нужно управлять
+        задачами просто, прозрачно и без лишней бюрократии. Установка возможна как на локальный сервер, так и в облаке
+        (например, на VPS).
+      </p>
+      <p class="mb-4">
+        Вы ищете таск-менеджер без подписки, с возможностью установки на свой сервер и полной свободой в использовании?
+        Делайка — именно то решение, которое сочетает простоту, удобство и безопасность.
+      </p>
+      <p class="text-gray-500 mt-6">Ключевые фразы: таск-менеджер без подписки, альтернатива WEEEK, таск-менеджер на
+        свой сервер, управление задачами, коробочный таск-менеджер, таск-менеджер для команды.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+<section class="py-16 px-6 bg-white border-t border-gray-200" id="contact">
+  <div class="max-w-4xl mx-auto text-center">
+    <h3 class="text-2xl font-bold mb-4">Связаться с нами</h3>
+    <p class="text-lg text-gray-600 mb-6">
+      Остались вопросы? Напишите — поможем с установкой, интеграцией или подберём решение под вашу команду.
+    </p>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6 text-gray-700 text-lg">
+      <div class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0H8m0 0v0m0 0H8m8 0H8m8 0H8" />
+        </svg>
+        <a href="mailto:san4jkee@gmail.com" class="hover:underline">san4jkee@gmail.com</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h5l2-2h6a2 2 0 012 2v9z" />
+        </svg>
+        <a href="https://t.me/san4jkee" target="_blank" class="hover:underline">@san4jkee</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-6">
+    © 2025 Делайка. Сделано Александром.
+  </footer>
+</body>
+
 </html>
