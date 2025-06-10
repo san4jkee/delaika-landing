@@ -1,7 +1,7 @@
-#Делайка демо версия
+# Делайка демо версия
 
-##Создание скрипта для автоматической установки на линукс.
-1. Скачать демо версию в <a href="https://github.com/san4jkee/delaika-landing/releases/tag/demo">Releases</a>
+## Создание скрипта для автоматической установки на линукс.
+1. Скачать демо версию в <a href="https://github.com/san4jkee/delaika-landing/releases/tag/demo" target="_blank">Releases</a>
 2. Создать скрипт:
 ```bash
 sudo nano auto_install.sh
